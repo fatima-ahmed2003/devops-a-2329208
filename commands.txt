@@ -1,0 +1,29 @@
+﻿# Question 1: Git & GitHub Pages Commands
+git add .
+git commit -m "feat: initial website structure"
+git remote add origin https://github.com/fatima-ahmed2003/devops-a-2329208.git
+git push -u origin main
+git checkout -b update-content
+git add site/index.html
+git commit -m "feat: add 4th technical skill"
+git checkout main
+git merge update-content
+git push origin main
+git push origin update-content
+git add .github/workflows/pages.yml
+git commit -m "ci: add GitHub Pages deployment workflow"
+git push origin main
+
+# Question 2: Docker & Kubernetes Commands
+docker build -t devops-a-2329208:v1 .
+docker run -d -p 8080:80 --name devops-a-2329208 devops-a-2329208:v1
+minikube start
+minikube image load devops-a-2329208:v1
+kubectl apply -f deployment.yaml
+kubectl get pods -l app=devops-a-2329208
+kubectl get deployment devops-a-2329208
+kubectl apply -f service.yaml
+minikube service devops-a-2329208 --url
+kubectl scale deployment devops-a-2329208 --replicas=2
+kubectl get pods -l app=devops-a-2329208
+kubectl get deployment devops-a-2329208
